@@ -16,13 +16,22 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .original, .simple { padding: 1rem; }
+    .original, .simple { padding: 1rem; white-space: pre-line; }
     .original { border-right: 2px solid #ddd; background: #f0f0f0; }
     .simple { background: #e6f7ff; }
     .simple strong { color: #006699; }
     nav { position: sticky; top: 0; background: white; padding: 1rem 0; z-index: 10; }
     nav a { margin-right: 1rem; text-decoration: none; color: #006699; font-weight: bold; }
     .section-title { margin-top: 3rem; }
+    #searchBar {
+      width: 100%;
+      padding: 10px;
+      margin: 20px 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -45,45 +54,51 @@
     <a href="#section15">15. Forced Operators</a>
     <a href="#section16">16. Passing</a>
     <a href="#section17">17. Glossary</a>
-  </nav>  <!-- Sections begin here. Each section has original and plain language explanation -->  <section id="section1">
-    <h2>1. Qualifications</h2>
+  </nav>  <input type="text" id="searchBar" placeholder="Search for a rule or keyword...">  <section id="section1">
+    <h2>1. Qualifications for a Spareboard Operator</h2>
     <div class="dual-column">
       <div class="original">
-        <p>Operators must be fully trained to handle all transit assignments and cannot refuse based on route unfamiliarity.</p>
-      </div>
-      <div class="simple">
-        <p><strong>Plain English:</strong> If you’re a Spareboard driver, you must be trained to drive any route. Maps or guides are enough — you can’t refuse a route because you don’t know it.</p>
-      </div>
-    </div>
+        All Operators signing on the Spareboard List must be qualified to carry out all assignments of a Transit Operator.To be qualified to carry out all assignments of an Operator, the Operator must have met conditions or requirements and have completed the driver's training course for new Operators as set by CMBC. In the case of Operators transferring to another Transit Centre, they will have completed route training at the Transit Centre to which they have transferred.
+
+    Operators cannot reject a Spareboard Assignment because of unfamiliarity, once they have received the training as set out in the above paragraph. Route maps, route descriptions, etc. are deemed sufficient instruction in the case of unfamiliarity.
+  </div>
+  <div class="simple">
+    <strong>Plain English:</strong>
+    You must be fully trained to drive any route, including route-specific training if you move to a new depot. Once you’ve been trained, you can’t refuse a shift by saying “I don’t know the route.”
+  </div>
+</div>
+
   </section>  <section id="section2">
     <h2>2. Safety Code</h2>
     <div class="dual-column">
       <div class="original">
-        <p>Rules include driving limits: 13 hours max driving/day, 14 hours duty/day, 16 hours total time/day, 8 hours rest required, and max 70 hours per 7 days.</p>
-      </div>
-      <div class="simple">
-        <p><strong>Plain English:</strong> You have legal time limits on work. Don’t go over or skip breaks — it’s unsafe and illegal.</p>
-      </div>
-    </div>
-  </section>  <section id="section3">
-    <h2>3. General Rules</h2>
-    <div class="dual-column">
-      <div class="original">
-        <p>Rules on removing names, signing sheets, work conflicts, overtime eligibility, and booking off.</p>
-      </div>
-      <div class="simple">
-        <p><strong>Plain English:</strong> You can’t erase your name or sign for others. Mistakes can cost you seniority or pay. Follow sign-up rules strictly.</p>
-      </div>
-    </div>
-  </section>  <!-- Continue sections 4 to 17 here following the same structure -->  <section id="section17">
-    <h2>17. Glossary</h2>
-    <div class="dual-column">
-      <div class="original">
-        <p>Definitions of terms used in the rules, like "Spareboard," "No Day Operator," and "TET."</p>
-      </div>
-      <div class="simple">
-        <p><strong>Plain English:</strong> This section explains special terms so you know what they mean when reading the rules.</p>
-      </div>
-    </div>
-  </section></body>
+        Operators must comply with:
+        - No more than 13 hours of driving per day
+        - No more than 14 hours on duty per day
+        - No more than 16 hours total time in a day (Total Elapsed Time or TET)
+        - At least 8 consecutive hours off before starting a new shift
+        - 24 hours off in the past 14 days
+        - Maximum 70 hours on duty in any 7-day period
+        - No deferring off-duty timeA new cycle can begin after 36 consecutive hours off duty. Duty time includes driving, standby, lay-up, meetings, training, etc.
+
+    You cannot sign or be assigned work that causes a violation of the Safety Code. If assigned incorrectly, you’ll be relieved and not paid minimums.
+  </div>
+  <div class="simple">
+    <strong>Plain English:</strong>
+    You can’t work too much in a week. You must get enough rest between shifts. If something goes over the legal limits, the company must fix it — and you might lose pay if you signed up for too much.
+  </div>
+</div>
+
+  </section>  <!-- Additional sections (3–17) should follow same pattern here -->  <script>
+    const searchInput = document.getElementById('searchBar');
+    const sections = document.querySelectorAll('section');
+
+    searchInput.addEventListener('input', () => {
+      const searchValue = searchInput.value.toLowerCase();
+      sections.forEach(section => {
+        const text = section.textContent.toLowerCase();
+        section.style.display = text.includes(searchValue) ? 'block' : 'none';
+      });
+    });
+  </script></body>
 </html>
